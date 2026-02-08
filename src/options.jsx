@@ -80,6 +80,7 @@ function OptionsApp() {
     const [availableModels, setAvailableModels] = useState([]);
     const [isFetchingModels, setIsFetchingModels] = useState(false);
     const [fetchModelMsg, setFetchModelMsg] = useState('');
+    const [showModelList, setShowModelList] = useState(false);
 
     useEffect(() => {
         // Load settings
@@ -285,21 +286,67 @@ function OptionsApp() {
                         <div>
                             <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">{t('modelName')}</label>
                             <div className="flex gap-2">
-                                <div className="relative flex-1">
+                                <div className="relative flex-1 group">
                                     <input
                                         type="text"
-                                        list="model-suggestions"
                                         value={modelName}
-                                        onChange={(e) => setModelName(e.target.value)}
+                                        onChange={(e) => {
+                                            setModelName(e.target.value);
+                                            // Auto-open list on typing if not empty, or keep it open
+                                        }}
+                                        onFocus={() => setShowModelList(true)}
+                                        onBlur={() => setTimeout(() => setShowModelList(false), 200)} // Delay to allow click
                                         className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none font-mono"
                                         placeholder="e.g. gpt-4o"
                                         autoComplete="off"
                                     />
-                                    <datalist id="model-suggestions">
-                                        {availableModels.map((model) => (
-                                            <option key={model} value={model} />
-                                        ))}
-                                    </datalist>
+
+                                    {/* Custom Dropdown */}
+                                    {showModelList && availableModels.length > 0 && (
+                                        <div className="absolute top-full left-0 right-0 mt-1 max-h-60 overflow-y-auto bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50">
+                                            {availableModels
+                                                .filter(m => {
+                                                    if (!modelName) return true;
+                                                    // Fuzzy match: query chars must appear in sequence
+                                                    const query = modelName.toLowerCase();
+                                                    const target = m.toLowerCase();
+                                                    let i = 0;
+                                                    for (let char of target) {
+                                                        if (char === query[i]) i++;
+                                                        if (i === query.length) return true;
+                                                    }
+                                                    return false;
+                                                })
+                                                .map((model) => (
+                                                    <div
+                                                        key={model}
+                                                        className="px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer font-mono truncate"
+                                                        onMouseDown={(e) => {
+                                                            e.preventDefault(); // Prevent blur
+                                                            setModelName(model);
+                                                            setShowModelList(false);
+                                                        }}
+                                                    >
+                                                        {model}
+                                                    </div>
+                                                ))}
+                                            {availableModels.filter(m => {
+                                                if (!modelName) return true;
+                                                const query = modelName.toLowerCase();
+                                                const target = m.toLowerCase();
+                                                let i = 0;
+                                                for (let char of target) {
+                                                    if (char === query[i]) i++;
+                                                    if (i === query.length) return true;
+                                                }
+                                                return false;
+                                            }).length === 0 && (
+                                                    <div className="px-3 py-2 text-sm text-gray-400 dark:text-gray-500 italic">
+                                                        No fuzzy matches found
+                                                    </div>
+                                                )}
+                                        </div>
+                                    )}
                                 </div>
                                 <button
                                     onClick={handleFetchModels}
