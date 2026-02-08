@@ -261,9 +261,9 @@ export function Overlay() {
                                     )}
 
                                     {error && (
-                                        <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/50 rounded-lg text-red-600 dark:text-red-200 text-sm flex items-center gap-3 shrink-0">
-                                            <span>{t('error')}: {error}</span>
-                                            <button onClick={fetchRedditData} className="ml-auto underline hover:text-black dark:hover:text-white">{t('retry')}</button>
+                                        <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/50 rounded-lg text-red-600 dark:text-red-200 text-sm flex items-start gap-3 shrink-0">
+                                            <span className="flex-1 break-words">{t('error')}: {error}</span>
+                                            <button onClick={fetchRedditData} className="underline hover:text-black dark:hover:text-white whitespace-nowrap shrink-0 ml-2">{t('retry')}</button>
                                         </div>
                                     )}
 
