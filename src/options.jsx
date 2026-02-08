@@ -275,6 +275,34 @@ function OptionsApp() {
                                 {t('modelHelp')}
                             </p>
                         </div>
+
+                        <div className="pt-1 flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={handleTestConnection}
+                                    disabled={isTesting || !apiKey}
+                                    className={`text-xs flex items-center gap-1.5 px-2 py-1.5 rounded transition-colors
+                                        ${isTesting || !apiKey
+                                            ? 'text-gray-400 cursor-not-allowed'
+                                            : 'text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20'
+                                        }`}
+                                >
+                                    {isTesting ? (
+                                        <Loader2 size={12} className="animate-spin" />
+                                    ) : (
+                                        <CheckCircle size={12} />
+                                    )}
+                                    <span className="font-medium">{isTesting ? t('testing') : t('testConnection')}</span>
+                                </button>
+
+                                {testResult && (
+                                    <span className={`text-xs px-2 py-0.5 rounded flex items-center gap-1 ${testResult.success ? 'text-green-600 bg-green-50 dark:text-green-400 dark:bg-green-900/20' : 'text-red-600 bg-red-50 dark:text-red-400 dark:bg-red-900/20'}`}>
+                                        {testResult.success ? <CheckCircle size={10} /> : <AlertCircle size={10} />}
+                                        <span className="max-w-[150px] truncate" title={testResult.msg}>{testResult.msg}</span>
+                                    </span>
+                                )}
+                            </div>
+                        </div>
                     </div>
 
                     <div className="pt-4 space-y-3">
@@ -285,32 +313,7 @@ function OptionsApp() {
                             {t('save')}
                         </button>
 
-                        <div className="pt-2">
-                            <button
-                                onClick={handleTestConnection}
-                                disabled={isTesting || !apiKey}
-                                className={`w-full py-2.5 rounded-lg font-medium transition-colors shadow-sm text-sm border flex items-center justify-center gap-2
-                                    ${isTesting || !apiKey
-                                        ? 'bg-gray-100 dark:bg-gray-800 text-gray-400 border-gray-200 dark:border-gray-700 cursor-not-allowed'
-                                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
-                                    }`}
-                            >
-                                {isTesting ? (
-                                    <>
-                                        <Loader2 size={16} className="animate-spin" />
-                                        {t('testing')}
-                                    </>
-                                ) : (
-                                    t('testConnection')
-                                )}
-                            </button>
-                            {testResult && (
-                                <div className={`mt-2 p-2 rounded text-xs flex items-center gap-2 ${testResult.success ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300'}`}>
-                                    {testResult.success ? <CheckCircle size={14} /> : <AlertCircle size={14} />}
-                                    <span className="truncate">{testResult.msg}</span>
-                                </div>
-                            )}
-                        </div>
+
 
                         <a
                             href="https://ko-fi.com/pony2026"
