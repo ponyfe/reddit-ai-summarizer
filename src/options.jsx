@@ -30,7 +30,7 @@ const DEFAULTS = {
     },
     google: {
         baseUrl: 'https://generativelanguage.googleapis.com/v1beta/openai',
-        model: 'gemini-1.5-flash',
+        model: 'gemini-2.5-flash',
         docUrl: 'https://aistudio.google.com/app/apikey'
     },
     minimax: {
