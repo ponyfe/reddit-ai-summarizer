@@ -292,39 +292,40 @@ export function Overlay() {
                             {/* Footer */}
                             {!loading && !error && data && (
                                 <div className="p-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50/95 dark:bg-gray-900/95 shrink-0 flex items-center justify-between text-xs text-gray-500 border-gray-200 dark:border-gray-700 transition-colors duration-200 z-10">
-                                    <div className="flex items-center gap-2 flex-1 mr-4 overflow-hidden">
+                                    <div className="flex items-center gap-3 flex-1 overflow-hidden">
                                         {data.authorAvatar ? (
                                             <img
                                                 src={data.authorAvatar}
                                                 alt={data.author}
-                                                className="w-6 h-6 rounded-full object-cover border border-gray-200 dark:border-gray-700"
+                                                className="w-9 h-9 rounded-full object-cover border border-gray-200 dark:border-gray-700"
                                             />
                                         ) : (
-                                            <div className="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center border border-gray-300 dark:border-gray-600 shrink-0">
-                                                <User size={14} className="text-gray-500 dark:text-gray-400" />
+                                            <div className="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center border border-gray-300 dark:border-gray-600 shrink-0">
+                                                <User size={20} className="text-gray-500 dark:text-gray-400" />
                                             </div>
                                         )}
-                                        <div className="flex flex-col min-w-0">
-                                            <div className="flex items-center gap-2">
-                                                {data.author && <span className="font-semibold text-gray-700 dark:text-gray-300 truncate">u/{data.author}</span>}
-                                                <span className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 border border-gray-200 dark:border-gray-700 px-1 rounded bg-gray-50 dark:bg-gray-800">
+                                        <div className="flex flex-col min-w-0 flex-1">
+                                            <div className="flex items-center gap-2 mb-0.5">
+                                                {data.author && <span className="font-semibold text-gray-700 dark:text-gray-300 truncate max-w-[120px]">u/{data.author}</span>}
+                                                <span className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 border border-gray-200 dark:border-gray-700 px-1 rounded bg-gray-50 dark:bg-gray-800 shrink-0">
                                                     {settings.modelName || settings.model || 'GPT-3.5'}
                                                 </span>
+                                                <button
+                                                    onClick={fetchRedditData}
+                                                    disabled={loading || analyzing}
+                                                    className={`ml-2 flex items-center gap-1 transition-colors whitespace-nowrap bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-2 py-0.5 rounded-md shadow-sm ${loading || analyzing
+                                                        ? 'opacity-50 cursor-not-allowed text-gray-400'
+                                                        : 'hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900 text-gray-600 dark:text-gray-400'
+                                                        }`}
+                                                    title={t('resummarize')}
+                                                >
+                                                    <RefreshCw size={10} className={loading || analyzing ? "animate-spin" : ""} />
+                                                    <span>{t('resummarize')}</span>
+                                                </button>
                                             </div>
-                                            <span className="truncate opacity-75">{data.title}</span>
+                                            <span className="truncate opacity-75 text-[11px]">{data.title}</span>
                                         </div>
                                     </div>
-
-                                    <button
-                                        onClick={fetchRedditData}
-                                        disabled={loading || analyzing}
-                                        className={`flex items-center gap-1 transition-colors whitespace-nowrap ${loading || analyzing
-                                            ? 'opacity-50 cursor-not-allowed text-gray-400'
-                                            : 'hover:text-blue-500 dark:hover:text-blue-400'
-                                            }`}
-                                    >
-                                        <RefreshCw size={12} className={loading || analyzing ? "animate-spin" : ""} /> {t('resummarize')}
-                                    </button>
                                 </div>
                             )}
                         </div>
