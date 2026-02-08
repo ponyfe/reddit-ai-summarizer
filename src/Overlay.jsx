@@ -148,7 +148,13 @@ export function Overlay() {
         // Let's NOT force expand on auto-start, only on manual click.
 
         try {
-            await new Promise(r => setTimeout(r, 500));
+            // Wait for page content to stabilize (comments to finish loading)
+            if (window.waitForContentStable) {
+                await window.waitForContentStable(1000, 5000);
+            } else {
+                // Fallback to simple delay if helper not available
+                await new Promise(r => setTimeout(r, 1500));
+            }
 
             const extractedData = window.getRedditDataGlobal ? window.getRedditDataGlobal() : null;
             if (!extractedData || !extractedData.title) {

@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import { StrictMode } from 'react'
 import { Overlay } from './Overlay'
-import { getRedditDataGlobal } from './extractor';
+import { getRedditDataGlobal, waitForContentStable } from './extractor';
 import styleText from './content.css?inline'
 import './content.css'
 
@@ -47,3 +47,4 @@ injectHost();
 
 // Expose extractor globally for Overlay
 window.getRedditDataGlobal = getRedditDataGlobal;
+window.waitForContentStable = waitForContentStable;

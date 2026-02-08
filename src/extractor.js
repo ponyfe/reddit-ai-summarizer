@@ -1,3 +1,49 @@
+/**
+ * Wait for Reddit comments to stabilize (stop loading new comments).
+ * Uses MutationObserver to detect when new shreddit-comment elements stop appearing.
+ * @param {number} stableDelayMs - How long to wait after last mutation before considering stable (default: 1000ms)
+ * @param {number} maxWaitMs - Maximum time to wait before giving up (default: 5000ms)
+ * @returns {Promise<void>}
+ */
+export function waitForContentStable(stableDelayMs = 1000, maxWaitMs = 5000) {
+    return new Promise((resolve) => {
+        let stableTimer = null;
+        let resolved = false;
+
+        const finalize = () => {
+            if (resolved) return;
+            resolved = true;
+            if (observer) observer.disconnect();
+            if (stableTimer) clearTimeout(stableTimer);
+            resolve();
+        };
+
+        // Maximum wait timeout
+        const maxTimer = setTimeout(finalize, maxWaitMs);
+
+        const observer = new MutationObserver(() => {
+            // Reset stability timer on any mutation
+            if (stableTimer) clearTimeout(stableTimer);
+            stableTimer = setTimeout(() => {
+                clearTimeout(maxTimer);
+                finalize();
+            }, stableDelayMs);
+        });
+
+        // Observe the entire document for new comment elements
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        // Start the initial stability timer
+        stableTimer = setTimeout(() => {
+            clearTimeout(maxTimer);
+            finalize();
+        }, stableDelayMs);
+    });
+}
+
 export function getRedditDataGlobal() {
     console.log('Extracting Reddit Data (Module)...');
 
