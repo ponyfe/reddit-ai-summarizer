@@ -27,7 +27,20 @@ export function getRedditDataGlobal() {
     const shredditPost = document.querySelector('shreddit-post');
     if (shredditPost) {
         author = shredditPost.getAttribute('author') || '';
-        authorAvatar = shredditPost.getAttribute('author-icon-img') || '';
+        authorAvatar = shredditPost.getAttribute('author-icon-img');
+
+        if (!authorAvatar) {
+            // Try inside the shadow dom or children. 
+            // Often it's in a slot="credit-bar" or similar.
+            // Let's look for faceplate-img or just an img with specific classes or context.
+            const img = shredditPost.querySelector('faceplate-img') ||
+                shredditPost.querySelector('img[alt*="Avatar"]') ||
+                document.querySelector('img[alt*="' + author + '"]'); // Global fallback if author known
+
+            if (img) authorAvatar = img.src || img.getAttribute('src');
+        }
+
+        if (!authorAvatar) authorAvatar = ""; // Ensure string
     } else {
         // Fallback for old reddit or other layouts
         const authorLink = document.querySelector('.author');
