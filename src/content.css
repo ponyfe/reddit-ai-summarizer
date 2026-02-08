@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Additional styles for the Shadow DOM host if needed */
+:host {
+    display: block;
+}

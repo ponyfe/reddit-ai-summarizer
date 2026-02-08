@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "Reddit AI Summarizer",
+    "version": "1.1.0",
+    "description": "Summarize Reddit threads using AI",
+    "action": {
+        "default_title": "Reddit AI Summary",
+        "default_popup": "options.html"
+    },
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": [
+        "*://*.reddit.com/*"
+    ],
+    "background": {
+        "service_worker": "src/background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.reddit.com/*"
+            ],
+            "js": [
+                "src/content.jsx"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}

@@ -1,0 +1,327 @@
+export const LANGUAGES = {
+    en: "English",
+    zh: "中文 (Chinese)",
+    es: "Español (Spanish)",
+    de: "Deutsch (German)",
+    fr: "Français (French)",
+    ja: "日本語 (Japanese)",
+    pt: "Português (Portuguese)",
+    ar: "العربية (Arabic)",
+    ru: "Русский (Russian)",
+    hi: "हिन्दी (Hindi)",
+    ko: "한국어 (Korean)"
+};
+
+export const TRANSLATIONS = {
+    en: {
+        settingsTitle: "Settings",
+        provider: "Provider",
+        apiKey: "API Key",
+        baseUrl: "Base URL",
+        modelName: "Model Name",
+        language: "Language",
+        theme: "Theme",
+        save: "Save",
+        saved: "Settings Saved!",
+        source: "Source",
+        resummarize: "Re-summarize",
+        reading: "Reading Thread...",
+        thinking: "Thinking...",
+        error: "Error",
+        bubbleTooltip: "AI Summary",
+        retry: "Retry",
+        themes: {
+            system: "System",
+            light: "Light",
+            dark: "Dark"
+        },
+        baseUrlHelp: "Endpoint address (OpenAI compatible).",
+        googleHelp: "For Google, requires 'generativelanguage.googleapis.com'.",
+        modelHelp: "e.g. gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "English"
+    },
+    zh: {
+        settingsTitle: "设置",
+        provider: "模型服务商",
+        apiKey: "API 密钥",
+        baseUrl: "API 地址 (Base URL)",
+        modelName: "模型名称",
+        language: "语言",
+        theme: "主题",
+        save: "保存",
+        saved: "设置已保存！",
+        source: "来源",
+        resummarize: "重新总结",
+        reading: "正在读取帖子...",
+        thinking: "思考中...",
+        error: "错误",
+        bubbleTooltip: "AI 总结",
+        retry: "重试",
+        themes: {
+            system: "跟随系统",
+            light: "浅色",
+            dark: "深色"
+        },
+        baseUrlHelp: "OpenAI 兼容的接口地址。",
+        googleHelp: "Google Gemini 需要 'generativelanguage.googleapis.com'。",
+        modelHelp: "例如: gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "Simplified Chinese"
+    },
+    es: {
+        settingsTitle: "Configuración",
+        provider: "Proveedor",
+        apiKey: "Clave API",
+        baseUrl: "URL Base",
+        modelName: "Nombre del Modelo",
+        language: "Idioma",
+        theme: "Tema",
+        save: "Guardar",
+        saved: "¡Guardado!",
+        source: "Fuente",
+        resummarize: "Resumir de nuevo",
+        reading: "Leyendo hilo...",
+        thinking: "Pensando...",
+        error: "Error",
+        bubbleTooltip: "Resumen IA",
+        retry: "Reintentar",
+        themes: {
+            system: "Sistema",
+            light: "Claro",
+            dark: "Oscuro"
+        },
+        baseUrlHelp: "Dirección del punto final (compatible con OpenAI).",
+        googleHelp: "Para Google, requiere 'generativelanguage.googleapis.com'.",
+        modelHelp: "ej. gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "Spanish"
+    },
+    de: {
+        settingsTitle: "Einstellungen",
+        provider: "Anbieter",
+        apiKey: "API-Schlüssel",
+        baseUrl: "Basis-URL",
+        modelName: "Modellname",
+        language: "Sprache",
+        theme: "Design",
+        save: "Speichern",
+        saved: "Gespeichert!",
+        source: "Quelle",
+        resummarize: "Neu zusammenfassen",
+        reading: "Lese Thread...",
+        thinking: "Nachdenken...",
+        error: "Fehler",
+        bubbleTooltip: "KI-Zusammenfassung",
+        retry: "Wiederholen",
+        themes: {
+            system: "System",
+            light: "Hell",
+            dark: "Dunkel"
+        },
+        baseUrlHelp: "Endpunkt-Adresse (OpenAI-kompatibel).",
+        googleHelp: "Für Google wird 'generativelanguage.googleapis.com' benötigt.",
+        modelHelp: "z.B. gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "German"
+    },
+    fr: {
+        settingsTitle: "Paramètres",
+        provider: "Fournisseur",
+        apiKey: "Clé API",
+        baseUrl: "URL de base",
+        modelName: "Nom du modèle",
+        language: "Langue",
+        theme: "Thème",
+        save: "Enregistrer",
+        saved: "Enregistré !",
+        source: "Source",
+        resummarize: "Re-résumer",
+        reading: "Lecture du fil...",
+        thinking: "Réflexion...",
+        error: "Erreur",
+        bubbleTooltip: "Résumé IA",
+        retry: "Réessayer",
+        themes: {
+            system: "Système",
+            light: "Clair",
+            dark: "Sombre"
+        },
+        baseUrlHelp: "Adresse du point de terminaison (compatible OpenAI).",
+        googleHelp: "Pour Google, nécessite 'generativelanguage.googleapis.com'.",
+        modelHelp: "ex. gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "French"
+    },
+    ja: {
+        settingsTitle: "設定",
+        provider: "プロバイダー",
+        apiKey: "APIキー",
+        baseUrl: "ベースURL",
+        modelName: "モデル名",
+        language: "言語",
+        theme: "テーマ",
+        save: "保存",
+        saved: "保存しました！",
+        source: "ソース",
+        resummarize: "再要約",
+        reading: "スレッドを読み込んでいます...",
+        thinking: "思考中...",
+        error: "エラー",
+        bubbleTooltip: "AI要約",
+        retry: "再試行",
+        themes: {
+            system: "システム",
+            light: "ライト",
+            dark: "ダーク"
+        },
+        baseUrlHelp: "エンドポイントアドレス (OpenAI互換)。",
+        googleHelp: "Googleの場合、'generativelanguage.googleapis.com'が必要です。",
+        modelHelp: "例: gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "Japanese"
+    },
+    pt: {
+        settingsTitle: "Configurações",
+        provider: "Provedor",
+        apiKey: "Chave API",
+        baseUrl: "URL Base",
+        modelName: "Nome do Modelo",
+        language: "Idioma",
+        theme: "Tema",
+        save: "Salvar",
+        saved: "Salvo!",
+        source: "Fonte",
+        resummarize: "Re-resumir",
+        reading: "Lendo tópico...",
+        thinking: "Pensando...",
+        error: "Erro",
+        bubbleTooltip: "Resumo IA",
+        retry: "Tentar novamente",
+        themes: {
+            system: "Sistema",
+            light: "Claro",
+            dark: "Escuro"
+        },
+        baseUrlHelp: "Endereço do endpoint (compatível com OpenAI).",
+        googleHelp: "Para Google, requer 'generativelanguage.googleapis.com'.",
+        modelHelp: "ex. gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "Portuguese"
+    },
+    ar: {
+        settingsTitle: "الإعدادات",
+        provider: "مقدم الخدمة",
+        apiKey: "مفتاح API",
+        baseUrl: "الرابط الأساسي",
+        modelName: "اسم النموذج",
+        language: "اللغة",
+        theme: "المظهر",
+        save: "حفظ",
+        saved: "تم الحفظ!",
+        source: "المصدر",
+        resummarize: "إعادة التلخيص",
+        reading: "جاري قراءة الموضوع...",
+        thinking: "جاري التفكير...",
+        error: "خطأ",
+        bubbleTooltip: "ملخص الذكاء الاصطناعي",
+        retry: "إعادة المحاولة",
+        themes: {
+            system: "النظام",
+            light: "فاتح",
+            dark: "داكن"
+        },
+        baseUrlHelp: "عنوان نقطة النهاية (متوافق مع OpenAI).",
+        googleHelp: "بالنسبة لـ Google، يتطلب 'generativelanguage.googleapis.com'.",
+        modelHelp: "مثل gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "Arabic"
+    },
+    ru: {
+        settingsTitle: "Настройки",
+        provider: "Провайдер",
+        apiKey: "API Ключ",
+        baseUrl: "Базовый URL",
+        modelName: "Имя модели",
+        language: "Язык",
+        theme: "Тема",
+        save: "Сохранить",
+        saved: "Сохранено!",
+        source: "Источник",
+        resummarize: "Пересоздать",
+        reading: "Чтение треда...",
+        thinking: "Думаю...",
+        error: "Ошибка",
+        bubbleTooltip: "AI Саммери",
+        retry: "Повторить",
+        themes: {
+            system: "Системная",
+            light: "Светлая",
+            dark: "Темная"
+        },
+        baseUrlHelp: "Адрес конечной точки (совместимый с OpenAI).",
+        googleHelp: "Для Google требуется 'generativelanguage.googleapis.com'.",
+        modelHelp: "напр. gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "Russian"
+    },
+    hi: {
+        settingsTitle: "सेटिंग्स",
+        provider: "प्रदाता",
+        apiKey: "API कुंजी",
+        baseUrl: "बेस URL",
+        modelName: "मॉडल का नाम",
+        language: "भाषा",
+        theme: "थीम",
+        save: "सहेजें",
+        saved: "सहेजा गया!",
+        source: "स्रोत",
+        resummarize: "पुनः सारांशित करें",
+        reading: "थ्रेड पढ़ रहा है...",
+        thinking: "सोच रहा है...",
+        error: "त्रुटि",
+        bubbleTooltip: "AI सारांश",
+        retry: "पुनः प्रयास करें",
+        themes: {
+            system: "सिस्टम",
+            light: "लाइट",
+            dark: "डार्क"
+        },
+        baseUrlHelp: "एंडपॉइंट पता (OpenAI संगत)।",
+        googleHelp: "Google के लिए, 'generativelanguage.googleapis.com' की आवश्यकता है।",
+        modelHelp: "जैसे gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "Hindi"
+    },
+    ko: {
+        settingsTitle: "설정",
+        provider: "제공자",
+        apiKey: "API 키",
+        baseUrl: "기본 URL",
+        modelName: "모델 이름",
+        language: "언어",
+        theme: "테마",
+        save: "저장",
+        saved: "저장됨!",
+        source: "출처",
+        resummarize: "다시 요약",
+        reading: "스레드 읽는 중...",
+        thinking: "생각 중...",
+        error: "오류",
+        bubbleTooltip: "AI 요약",
+        retry: "재시도",
+        themes: {
+            system: "시스템",
+            light: "라이트",
+            dark: "다크"
+        },
+        baseUrlHelp: "엔드포인트 주소 (OpenAI 호환).",
+        googleHelp: "Google의 경우 'generativelanguage.googleapis.com'이 필요합니다.",
+        modelHelp: "예: gpt-4o, deepseek-chat, gemini-1.5-flash",
+        promptLanguage: "Korean"
+    }
+};
+
+export function getTranslation(lang, key) {
+    const language = TRANSLATIONS[lang] || TRANSLATIONS['en'];
+    return language[key] || TRANSLATIONS['en'][key] || key;
+}
+
+export function detectLanguage() {
+    const browserLang = navigator.language.split('-')[0]; // e.g. 'en-US' -> 'en', 'zh-CN' -> 'zh'
+    if (TRANSLATIONS[browserLang]) {
+        return browserLang;
+    }
+    // Specific overrides if needed, e.g. 'pt-BR' is handled by 'pt' check above
+    return 'en';
+}
