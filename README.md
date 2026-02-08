@@ -38,10 +38,9 @@
 
 ## 🖼️ Screenshots
 
-<!-- Add your screenshots here -->
-| Floating Button | Summary Panel | Settings |
-|:---------------:|:-------------:|:--------:|
-| ![Button](https://via.placeholder.com/200x150) | ![Panel](https://via.placeholder.com/200x150) | ![Settings](https://via.placeholder.com/200x150) |
+| Summary Panel | Settings |
+|:-------------:|:--------:|
+| ![Panel](./screenshots/popup.png) | ![Settings](./screenshots/setting.png) |
 
 ## 📦 Installation
 
