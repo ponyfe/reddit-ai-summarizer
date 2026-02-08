@@ -1,5 +1,6 @@
 import { StrictMode, useState, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Coffee } from 'lucide-react'
 import './index.css' // Reuse main css for tailwind
 import { LANGUAGES, TRANSLATIONS, getTranslation, detectLanguage } from './i18n'
 
@@ -255,13 +256,26 @@ function OptionsApp() {
                         </div>
                     </div>
 
-                    <div className="pt-4">
+                    <div className="pt-4 space-y-3">
                         <button
                             onClick={handleSave}
                             className="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-lg font-medium transition-colors shadow-sm"
                         >
                             {t('save')}
                         </button>
+
+                        <a
+                            href="https://ko-fi.com/YOUR_USERNAME_HERE"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2 w-full bg-[#FF5E5B] hover:bg-[#FF413E] text-white py-2.5 rounded-lg font-medium transition-colors shadow-sm text-sm"
+                        >
+                            <Coffee size={16} fill="currentColor" />
+                            {t('supportMe')}
+                        </a>
+                        <p className="text-center text-xs text-gray-400 dark:text-gray-500">
+                            Update the Ko-fi URL in options.jsx
+                        </p>
                     </div>
 
                 </div>
