@@ -50,7 +50,7 @@ const DEFAULTS = {
     },
     tongyi: {
         baseUrl: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
-        model: 'qwen-turbo',
+        model: 'qwen-turbo-latest',
         docUrl: 'https://bailian.console.aliyun.com/?apiKey=1'
     },
     openrouter: {
@@ -296,8 +296,8 @@ function OptionsApp() {
                                     setUrlError(!isValidUrl(val));
                                 }}
                                 className={`w-full bg-white dark:bg-gray-700 border rounded-lg p-2 text-sm focus:ring-2 outline-none font-mono ${urlError
-                                        ? 'border-red-400 dark:border-red-500 focus:ring-red-400'
-                                        : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+                                    ? 'border-red-400 dark:border-red-500 focus:ring-red-400'
+                                    : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
                                     }`}
                                 placeholder="https://api.example.com/v1"
                             />
@@ -351,6 +351,7 @@ function OptionsApp() {
                                                 .map((model) => (
                                                     <div
                                                         key={model}
+                                                        title={model}
                                                         className="px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer font-mono truncate"
                                                         onMouseDown={(e) => {
                                                             e.preventDefault(); // Prevent blur
