@@ -45,7 +45,8 @@ export const TRANSLATIONS = {
         promptSummary: "Summary",
         promptKeyPoints: "Key Points",
         promptSentiment: "Sentiment",
-        modelUsed: "Model"
+        modelUsed: "Model",
+        getApiKey: "Get API Key"
     },
     zh: {
         settingsTitle: "设置",
@@ -81,7 +82,8 @@ export const TRANSLATIONS = {
         promptSummary: "摘要",
         promptKeyPoints: "关键点",
         promptSentiment: "情感倾向",
-        modelUsed: "模型"
+        modelUsed: "模型",
+        getApiKey: "获取 API 密钥"
     },
     es: {
         settingsTitle: "Configuración",
@@ -117,7 +119,8 @@ export const TRANSLATIONS = {
         promptSummary: "Resumen",
         promptKeyPoints: "Puntos Clave",
         promptSentiment: "Sentimiento",
-        modelUsed: "Modelo"
+        modelUsed: "Modelo",
+        getApiKey: "Obtener Clave API"
     },
     de: {
         settingsTitle: "Einstellungen",
@@ -153,7 +156,8 @@ export const TRANSLATIONS = {
         promptSummary: "Zusammenfassung",
         promptKeyPoints: "Wichtige Punkte",
         promptSentiment: "Stimmung",
-        modelUsed: "Modell"
+        modelUsed: "Modell",
+        getApiKey: "API-Schlüssel abrufen"
     },
     fr: {
         settingsTitle: "Paramètres",
@@ -189,7 +193,8 @@ export const TRANSLATIONS = {
         promptSummary: "Résumé",
         promptKeyPoints: "Points Clés",
         promptSentiment: "Sentiment",
-        modelUsed: "Modèle"
+        modelUsed: "Modèle",
+        getApiKey: "Obtenir la clé API"
     },
     ja: {
         settingsTitle: "設定",
@@ -225,7 +230,8 @@ export const TRANSLATIONS = {
         promptSummary: "要約",
         promptKeyPoints: "重要ポイント",
         promptSentiment: "感情分析",
-        modelUsed: "モデル"
+        modelUsed: "モデル",
+        getApiKey: "APIキーを取得"
     },
     pt: {
         settingsTitle: "Configurações",
@@ -261,7 +267,8 @@ export const TRANSLATIONS = {
         promptSummary: "Resumo",
         promptKeyPoints: "Pontos Principais",
         promptSentiment: "Sentimento",
-        modelUsed: "Modelo"
+        modelUsed: "Modelo",
+        getApiKey: "Obter Chave API"
     },
     ar: {
         settingsTitle: "الإعدادات",
@@ -297,7 +304,8 @@ export const TRANSLATIONS = {
         promptSummary: "الملخص",
         promptKeyPoints: "النقاط الرئيسية",
         promptSentiment: "المشاعر",
-        modelUsed: "النموذج"
+        modelUsed: "النموذج",
+        getApiKey: "الحصول على مفتاح API"
     },
     ru: {
         settingsTitle: "Настройки",
@@ -333,7 +341,8 @@ export const TRANSLATIONS = {
         promptSummary: "Кратко",
         promptKeyPoints: "Ключевые моменты",
         promptSentiment: "Настроение",
-        modelUsed: "Модель"
+        modelUsed: "Модель",
+        getApiKey: "Получить API Ключ"
     },
     hi: {
         settingsTitle: "सेटिंग्स",
@@ -369,7 +378,8 @@ export const TRANSLATIONS = {
         promptSummary: "सारांश",
         promptKeyPoints: "मुख्य बिंदु",
         promptSentiment: "भावना",
-        modelUsed: "मॉडल"
+        modelUsed: "मॉडल",
+        getApiKey: "API कुंजी प्राप्त करें"
     },
     ko: {
         settingsTitle: "설정",
@@ -405,7 +415,8 @@ export const TRANSLATIONS = {
         promptSummary: "요약",
         promptKeyPoints: "핵심 포인트",
         promptSentiment: "감정",
-        modelUsed: "모델"
+        modelUsed: "모델",
+        getApiKey: "API 키 발급"
     }
 };
 

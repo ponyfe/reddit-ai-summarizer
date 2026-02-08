@@ -18,39 +18,48 @@ const MODELS = [
 const DEFAULTS = {
     openai: {
         baseUrl: 'https://api.openai.com/v1',
-        model: 'gpt-4o'
+        model: 'gpt-4o',
+        docUrl: 'https://platform.openai.com/api-keys'
     },
     deepseek: {
         baseUrl: 'https://api.deepseek.com',
-        model: 'deepseek-chat'
+        model: 'deepseek-chat',
+        docUrl: 'https://platform.deepseek.com/api_keys'
     },
     google: {
         baseUrl: 'https://generativelanguage.googleapis.com/v1beta/openai',
-        model: 'gemini-1.5-flash'
+        model: 'gemini-1.5-flash',
+        docUrl: 'https://aistudio.google.com/app/apikey'
     },
     minimax: {
         baseUrl: 'https://api.minimax.chat/v1',
-        model: 'abab5.5-chat'
+        model: 'abab5.5-chat',
+        docUrl: 'https://platform.minimaxi.com/user-center/basic-information'
     },
     kimi: {
         baseUrl: 'https://api.moonshot.cn/v1',
-        model: 'moonshot-v1-8k'
+        model: 'moonshot-v1-8k',
+        docUrl: 'https://platform.moonshot.cn/console/api-keys'
     },
     zhipu: {
         baseUrl: 'https://open.bigmodel.cn/api/paas/v4',
-        model: 'glm-4'
+        model: 'glm-4',
+        docUrl: 'https://open.bigmodel.cn/usercenter/apikeys'
     },
     tongyi: {
         baseUrl: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
-        model: 'qwen-turbo'
+        model: 'qwen-turbo',
+        docUrl: 'https://bailian.console.aliyun.com/?apiKey=1'
     },
     openrouter: {
         baseUrl: 'https://openrouter.ai/api/v1',
-        model: 'openai/gpt-3.5-turbo'
+        model: 'openai/gpt-3.5-turbo',
+        docUrl: 'https://openrouter.ai/keys'
     },
     custom: {
         baseUrl: '',
-        model: ''
+        model: '',
+        docUrl: ''
     }
 };
 
@@ -202,6 +211,18 @@ function OptionsApp() {
                                 className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none font-mono"
                                 placeholder="sk-..."
                             />
+                            {DEFAULTS[provider]?.docUrl && (
+                                <p className="text-xs mt-1">
+                                    <a
+                                        href={DEFAULTS[provider].docUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 flex items-center gap-1 w-fit"
+                                    >
+                                        {t('getApiKey')} &rarr;
+                                    </a>
+                                </p>
+                            )}
                         </div>
 
                         <div>
