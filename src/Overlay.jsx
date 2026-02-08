@@ -305,7 +305,12 @@ export function Overlay() {
                                             </div>
                                         )}
                                         <div className="flex flex-col min-w-0">
-                                            {data.author && <span className="font-semibold text-gray-700 dark:text-gray-300 truncate">u/{data.author}</span>}
+                                            <div className="flex items-center gap-2">
+                                                {data.author && <span className="font-semibold text-gray-700 dark:text-gray-300 truncate">u/{data.author}</span>}
+                                                <span className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 border border-gray-200 dark:border-gray-700 px-1 rounded bg-gray-50 dark:bg-gray-800">
+                                                    {settings.modelName || settings.model || 'GPT-3.5'}
+                                                </span>
+                                            </div>
                                             <span className="truncate opacity-75">{data.title}</span>
                                         </div>
                                     </div>

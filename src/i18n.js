@@ -44,7 +44,8 @@ export const TRANSLATIONS = {
         promptTitle: "Title",
         promptSummary: "Summary",
         promptKeyPoints: "Key Points",
-        promptSentiment: "Sentiment"
+        promptSentiment: "Sentiment",
+        modelUsed: "Model"
     },
     zh: {
         settingsTitle: "设置",
@@ -79,7 +80,8 @@ export const TRANSLATIONS = {
         promptTitle: "标题",
         promptSummary: "摘要",
         promptKeyPoints: "关键点",
-        promptSentiment: "情感倾向"
+        promptSentiment: "情感倾向",
+        modelUsed: "模型"
     },
     es: {
         settingsTitle: "Configuración",
@@ -114,7 +116,8 @@ export const TRANSLATIONS = {
         promptTitle: "Título",
         promptSummary: "Resumen",
         promptKeyPoints: "Puntos Clave",
-        promptSentiment: "Sentimiento"
+        promptSentiment: "Sentimiento",
+        modelUsed: "Modelo"
     },
     de: {
         settingsTitle: "Einstellungen",
@@ -149,7 +152,8 @@ export const TRANSLATIONS = {
         promptTitle: "Titel",
         promptSummary: "Zusammenfassung",
         promptKeyPoints: "Wichtige Punkte",
-        promptSentiment: "Stimmung"
+        promptSentiment: "Stimmung",
+        modelUsed: "Modell"
     },
     fr: {
         settingsTitle: "Paramètres",
@@ -184,7 +188,8 @@ export const TRANSLATIONS = {
         promptTitle: "Titre",
         promptSummary: "Résumé",
         promptKeyPoints: "Points Clés",
-        promptSentiment: "Sentiment"
+        promptSentiment: "Sentiment",
+        modelUsed: "Modèle"
     },
     ja: {
         settingsTitle: "設定",
@@ -219,7 +224,8 @@ export const TRANSLATIONS = {
         promptTitle: "タイトル",
         promptSummary: "要約",
         promptKeyPoints: "重要ポイント",
-        promptSentiment: "感情分析"
+        promptSentiment: "感情分析",
+        modelUsed: "モデル"
     },
     pt: {
         settingsTitle: "Configurações",
@@ -254,7 +260,8 @@ export const TRANSLATIONS = {
         promptTitle: "Título",
         promptSummary: "Resumo",
         promptKeyPoints: "Pontos Principais",
-        promptSentiment: "Sentimento"
+        promptSentiment: "Sentimento",
+        modelUsed: "Modelo"
     },
     ar: {
         settingsTitle: "الإعدادات",
@@ -289,7 +296,8 @@ export const TRANSLATIONS = {
         promptTitle: "العنوان",
         promptSummary: "الملخص",
         promptKeyPoints: "النقاط الرئيسية",
-        promptSentiment: "المشاعر"
+        promptSentiment: "المشاعر",
+        modelUsed: "النموذج"
     },
     ru: {
         settingsTitle: "Настройки",
@@ -324,7 +332,8 @@ export const TRANSLATIONS = {
         promptTitle: "Заголовок",
         promptSummary: "Кратко",
         promptKeyPoints: "Ключевые моменты",
-        promptSentiment: "Настроение"
+        promptSentiment: "Настроение",
+        modelUsed: "Модель"
     },
     hi: {
         settingsTitle: "सेटिंग्स",
@@ -359,7 +368,8 @@ export const TRANSLATIONS = {
         promptTitle: "शीर्षक",
         promptSummary: "सारांश",
         promptKeyPoints: "मुख्य बिंदु",
-        promptSentiment: "भावना"
+        promptSentiment: "भावना",
+        modelUsed: "मॉडल"
     },
     ko: {
         settingsTitle: "설정",
@@ -394,7 +404,8 @@ export const TRANSLATIONS = {
         promptTitle: "제목",
         promptSummary: "요약",
         promptKeyPoints: "핵심 포인트",
-        promptSentiment: "감정"
+        promptSentiment: "감정",
+        modelUsed: "모델"
     }
 };
 
