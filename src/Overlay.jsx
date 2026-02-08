@@ -209,12 +209,6 @@ export function Overlay() {
 
         return (
             <div className="fixed bottom-8 right-8 z-[10000] pointer-events-auto">
-                {/* Outer glow ring - pulses when loading */}
-                <div className={`absolute inset-0 rounded-full transition-all duration-500 ${isActive ? 'animate-ping bg-orange-400/30 scale-150' :
-                        isSuccess ? 'bg-green-400/20 scale-110' :
-                            isError ? 'bg-red-400/20 scale-110' :
-                                'bg-orange-400/10 scale-100'
-                    }`} />
 
                 {/* Rotating gradient border for loading state */}
                 {isActive && (
