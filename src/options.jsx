@@ -65,6 +65,17 @@ const DEFAULTS = {
     }
 };
 
+// URL Validation Helper
+const isValidUrl = (url) => {
+    if (!url) return true; // Empty is valid (will use default)
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        return false;
+    }
+};
+
 function OptionsApp() {
     const [provider, setProvider] = useState('openai');
     const [apiKey, setApiKey] = useState('');
@@ -81,6 +92,7 @@ function OptionsApp() {
     const [isFetchingModels, setIsFetchingModels] = useState(false);
     const [fetchModelMsg, setFetchModelMsg] = useState('');
     const [showModelList, setShowModelList] = useState(false);
+    const [urlError, setUrlError] = useState(false);
 
     useEffect(() => {
         // Load settings
@@ -278,14 +290,28 @@ function OptionsApp() {
                             <input
                                 type="text"
                                 value={baseUrl}
-                                onChange={(e) => setBaseUrl(e.target.value)}
-                                className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none font-mono"
+                                onChange={(e) => {
+                                    const val = e.target.value;
+                                    setBaseUrl(val);
+                                    setUrlError(!isValidUrl(val));
+                                }}
+                                className={`w-full bg-white dark:bg-gray-700 border rounded-lg p-2 text-sm focus:ring-2 outline-none font-mono ${urlError
+                                        ? 'border-red-400 dark:border-red-500 focus:ring-red-400'
+                                        : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+                                    }`}
                                 placeholder="https://api.example.com/v1"
                             />
-                            <p className="text-xs text-gray-500 mt-1">
-                                {t('baseUrlHelp')}
-                                {provider === 'google' && " " + t('googleHelp')}
-                            </p>
+                            {urlError && (
+                                <p className="text-xs text-red-500 mt-1">
+                                    Invalid URL format
+                                </p>
+                            )}
+                            {!urlError && (
+                                <p className="text-xs text-gray-500 mt-1">
+                                    {t('baseUrlHelp')}
+                                    {provider === 'google' && " " + t('googleHelp')}
+                                </p>
+                            )}
                         </div>
 
                         <div>
