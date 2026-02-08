@@ -22,6 +22,7 @@ export function Overlay() {
     const [themeConfig, setThemeConfig] = useState('system');
     const [isDark, setIsDark] = useState(true);
     const [language, setLanguage] = useState(detectLanguage());
+    const [autoSummarize, setAutoSummarize] = useState(true);
 
     // Scroll Management
     const scrollRef = useRef(null);
@@ -34,17 +35,31 @@ export function Overlay() {
 
         const isPostPage = window.location.pathname.includes('/comments/');
         if (isPostPage) {
-            handleAutoStart();
+            // Wait for settings to load before deciding to auto-start
         }
 
         const changeListener = (changes) => {
             if (changes.theme) setThemeConfig(changes.theme.newValue);
             if (changes.language) setLanguage(changes.language.newValue);
             if (changes.llmSettings) setSettings(changes.llmSettings.newValue || {});
+            if (changes.autoSummarize !== undefined) setAutoSummarize(changes.autoSummarize.newValue);
         };
         chrome.storage.onChanged.addListener(changeListener);
-        return () => chrome.storage.onChanged.removeListener(changeListener);
-    }, []);
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape' && isExpanded) {
+                setExpanded(false);
+            }
+        };
+        document.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            chrome.storage.onChanged.removeListener(changeListener);
+            document.removeEventListener('keydown', handleKeyDown);
+        }
+    }, [isExpanded]); // Re-bind ESC listener if expansion changes, though technically not strictly equivalent to one-shot init. Better: just verify isExpanded in ref or dependency.
+
+    // Better ESC handling: use dependency or ref. Accessing state in listener requires dependency.
 
     // Theme Effect
     useEffect(() => {
@@ -81,10 +96,19 @@ export function Overlay() {
     };
 
     const loadSettings = () => {
-        chrome.storage.local.get(['llmSettings', 'theme', 'language'], (result) => {
+        chrome.storage.local.get(['llmSettings', 'theme', 'language', 'autoSummarize'], (result) => {
             setSettings(result.llmSettings || {});
             setThemeConfig(result.theme || 'system');
             setLanguage(result.language || 'en');
+
+            const autoSum = result.autoSummarize !== undefined ? result.autoSummarize : true;
+            setAutoSummarize(autoSum);
+
+            // Trigger auto-start only if on post page AND auto-summarize is ON AND we haven't fetched yet
+            const isPostPage = window.location.pathname.includes('/comments/');
+            if (isPostPage && autoSum && !data && !loading && !analyzing && !summary) {
+                handleAutoStart();
+            }
         });
     };
 
@@ -97,14 +121,6 @@ export function Overlay() {
         chrome.storage.local.set({ theme: nextTheme });
     };
 
-    const openOptions = () => {
-        if (chrome.runtime.openOptionsPage) {
-            chrome.runtime.openOptionsPage();
-        } else {
-            window.open(chrome.runtime.getURL('src/options.html'));
-        }
-    };
-
     const getThemeIcon = () => {
         if (themeConfig === 'system') return <Monitor size={18} />;
         if (themeConfig === 'light') return <Sun size={18} />;
@@ -114,7 +130,6 @@ export function Overlay() {
     const t = (key) => getTranslation(language, key);
 
     const handleAutoStart = async () => {
-        if (data || loading || analyzing) return;
         console.log("Auto-starting Reddit AI Summary...");
         fetchRedditData();
     };
@@ -126,6 +141,11 @@ export function Overlay() {
         setSummary('');
         setAnalyzing(false);
         shouldAutoScrollRef.current = true;
+        // If not already expanded, expand it? User might find it intrusive if auto-summarize is ON. 
+        // Typically auto-summarize implies we might want to see the result. 
+        // But let's keep expansion manual or triggered by click unless explicitly requested.
+        // Actually, previous behavior was probably to just run in bg.
+        // Let's NOT force expand on auto-start, only on manual click.
 
         try {
             await new Promise(r => setTimeout(r, 500));
@@ -165,8 +185,15 @@ export function Overlay() {
     };
 
     const toggleExpand = () => {
-        setExpanded(!isExpanded);
-        if (!isExpanded) shouldAutoScrollRef.current = true;
+        const nextState = !isExpanded;
+        setExpanded(nextState);
+        if (nextState) shouldAutoScrollRef.current = true;
+
+        // If opening and no data, fetch (manual trigger context)
+        // If auto-summarize was OFF, we need to trigger fetch now if empty.
+        if (nextState && !data && !loading && !analyzing && !error) {
+            fetchRedditData();
+        }
     };
 
     const FloatingBubble = () => (
@@ -201,6 +228,7 @@ export function Overlay() {
                                     ✨ Reddit AI Summary
                                 </h2>
                                 <div className="flex items-center gap-2">
+                                    <span className="text-xs text-gray-400 mr-2 hidde sm:block">{t('pressEsc')}</span>
                                     <button
                                         onClick={cycleTheme}
                                         className="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
@@ -208,10 +236,11 @@ export function Overlay() {
                                     >
                                         {getThemeIcon()}
                                     </button>
-                                    <button onClick={openOptions} className="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white" title={t('settingsTitle')}>
-                                        <SettingsIcon size={18} />
-                                    </button>
-                                    <button onClick={() => setExpanded(false)} className="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">
+                                    <button
+                                        onClick={() => setExpanded(false)}
+                                        className="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
+                                        title={t('close')}
+                                    >
                                         <Minimize2 size={18} />
                                     </button>
                                 </div>
@@ -268,8 +297,8 @@ export function Overlay() {
                                         onClick={fetchRedditData}
                                         disabled={loading || analyzing}
                                         className={`flex items-center gap-1 transition-colors whitespace-nowrap ${loading || analyzing
-                                                ? 'opacity-50 cursor-not-allowed text-gray-400'
-                                                : 'hover:text-blue-500 dark:hover:text-blue-400'
+                                            ? 'opacity-50 cursor-not-allowed text-gray-400'
+                                            : 'hover:text-blue-500 dark:hover:text-blue-400'
                                             }`}
                                     >
                                         <RefreshCw size={12} className={loading || analyzing ? "animate-spin" : ""} /> {t('resummarize')}

@@ -38,7 +38,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "Endpoint address (OpenAI compatible).",
         googleHelp: "For Google, requires 'generativelanguage.googleapis.com'.",
         modelHelp: "e.g. gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "English"
+        promptLanguage: "English",
+        autoSummarize: "Auto-Summarize",
+        close: "Close",
+        pressEsc: "Press ESC to close"
     },
     zh: {
         settingsTitle: "设置",
@@ -65,7 +68,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "OpenAI 兼容的接口地址。",
         googleHelp: "Google Gemini 需要 'generativelanguage.googleapis.com'。",
         modelHelp: "例如: gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "Simplified Chinese"
+        promptLanguage: "Simplified Chinese",
+        autoSummarize: "自动总结",
+        close: "关闭",
+        pressEsc: "按 ESC 关闭"
     },
     es: {
         settingsTitle: "Configuración",
@@ -92,7 +98,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "Dirección del punto final (compatible con OpenAI).",
         googleHelp: "Para Google, requiere 'generativelanguage.googleapis.com'.",
         modelHelp: "ej. gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "Spanish"
+        promptLanguage: "Spanish",
+        autoSummarize: "Resumen Automático",
+        close: "Cerrar",
+        pressEsc: "Presiona ESC para cerrar"
     },
     de: {
         settingsTitle: "Einstellungen",
@@ -119,7 +128,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "Endpunkt-Adresse (OpenAI-kompatibel).",
         googleHelp: "Für Google wird 'generativelanguage.googleapis.com' benötigt.",
         modelHelp: "z.B. gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "German"
+        promptLanguage: "German",
+        autoSummarize: "Automatische Zusammenfassung",
+        close: "Schließen",
+        pressEsc: "Drücken Sie ESC zum Schließen"
     },
     fr: {
         settingsTitle: "Paramètres",
@@ -146,7 +158,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "Adresse du point de terminaison (compatible OpenAI).",
         googleHelp: "Pour Google, nécessite 'generativelanguage.googleapis.com'.",
         modelHelp: "ex. gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "French"
+        promptLanguage: "French",
+        autoSummarize: "Résumé Automatique",
+        close: "Fermer",
+        pressEsc: "Appuyez sur ESC pour fermer"
     },
     ja: {
         settingsTitle: "設定",
@@ -173,7 +188,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "エンドポイントアドレス (OpenAI互換)。",
         googleHelp: "Googleの場合、'generativelanguage.googleapis.com'が必要です。",
         modelHelp: "例: gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "Japanese"
+        promptLanguage: "Japanese",
+        autoSummarize: "自動要約",
+        close: "閉じる",
+        pressEsc: "ESCキーで閉じる"
     },
     pt: {
         settingsTitle: "Configurações",
@@ -200,7 +218,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "Endereço do endpoint (compatível com OpenAI).",
         googleHelp: "Para Google, requer 'generativelanguage.googleapis.com'.",
         modelHelp: "ex. gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "Portuguese"
+        promptLanguage: "Portuguese",
+        autoSummarize: "Resumo Automático",
+        close: "Fechar",
+        pressEsc: "Pressione ESC para fechar"
     },
     ar: {
         settingsTitle: "الإعدادات",
@@ -227,7 +248,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "عنوان نقطة النهاية (متوافق مع OpenAI).",
         googleHelp: "بالنسبة لـ Google، يتطلب 'generativelanguage.googleapis.com'.",
         modelHelp: "مثل gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "Arabic"
+        promptLanguage: "Arabic",
+        autoSummarize: "تلخيص تلقائي",
+        close: "إغلاق",
+        pressEsc: "اضغط ESC للإغلاق"
     },
     ru: {
         settingsTitle: "Настройки",
@@ -254,7 +278,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "Адрес конечной точки (совместимый с OpenAI).",
         googleHelp: "Для Google требуется 'generativelanguage.googleapis.com'.",
         modelHelp: "напр. gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "Russian"
+        promptLanguage: "Russian",
+        autoSummarize: "Авто-саммери",
+        close: "Закрыть",
+        pressEsc: "Нажмите ESC для закрытия"
     },
     hi: {
         settingsTitle: "सेटिंग्स",
@@ -281,7 +308,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "एंडपॉइंट पता (OpenAI संगत)।",
         googleHelp: "Google के लिए, 'generativelanguage.googleapis.com' की आवश्यकता है।",
         modelHelp: "जैसे gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "Hindi"
+        promptLanguage: "Hindi",
+        autoSummarize: "स्वतः सारांश",
+        close: "बंद करें",
+        pressEsc: "बंद करने के लिए ESC दबाएं"
     },
     ko: {
         settingsTitle: "설정",
@@ -308,7 +338,10 @@ export const TRANSLATIONS = {
         baseUrlHelp: "엔드포인트 주소 (OpenAI 호환).",
         googleHelp: "Google의 경우 'generativelanguage.googleapis.com'이 필요합니다.",
         modelHelp: "예: gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "Korean"
+        promptLanguage: "Korean",
+        autoSummarize: "자동 요약",
+        close: "닫기",
+        pressEsc: "ESC를 눌러 닫기"
     }
 };
 
