@@ -151,6 +151,7 @@ function OptionsApp() {
                                 />
                                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{t('autoSummarize')}</span>
                             </label>
+                            <p className="text-xs text-gray-500 mt-1 ml-6">{t('autoSummarizeHelp')}</p>
                         </div>
                     </div>
 

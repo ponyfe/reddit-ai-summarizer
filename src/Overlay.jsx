@@ -175,7 +175,7 @@ export function Overlay() {
 
             // Pass language explicitely
             await generateSummary(redditData, currentSettings, language, (chunk) => {
-                setSummary(chunk);
+                setSummary(prev => prev + chunk);
             });
         } catch (err) {
             setError(err.message);

@@ -40,6 +40,7 @@ export const TRANSLATIONS = {
         modelHelp: "e.g. gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "English",
         autoSummarize: "Auto-Summarize",
+        autoSummarizeHelp: "Automatically summarize Reddit posts when page loads.",
         close: "Close",
         pressEsc: "Press ESC to close"
     },
@@ -70,6 +71,7 @@ export const TRANSLATIONS = {
         modelHelp: "例如: gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "Simplified Chinese",
         autoSummarize: "自动总结",
+        autoSummarizeHelp: "加载 Reddit 帖子页面时自动开始总结。",
         close: "关闭",
         pressEsc: "按 ESC 关闭"
     },
@@ -100,6 +102,7 @@ export const TRANSLATIONS = {
         modelHelp: "ej. gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "Spanish",
         autoSummarize: "Resumen Automático",
+        autoSummarizeHelp: "Resumir automáticamente las publicaciones de Reddit al cargar la página.",
         close: "Cerrar",
         pressEsc: "Presiona ESC para cerrar"
     },
@@ -130,6 +133,7 @@ export const TRANSLATIONS = {
         modelHelp: "z.B. gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "German",
         autoSummarize: "Automatische Zusammenfassung",
+        autoSummarizeHelp: "Reddit-Posts beim Laden der Seite automatisch zusammenfassen.",
         close: "Schließen",
         pressEsc: "Drücken Sie ESC zum Schließen"
     },
@@ -160,6 +164,7 @@ export const TRANSLATIONS = {
         modelHelp: "ex. gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "French",
         autoSummarize: "Résumé Automatique",
+        autoSummarizeHelp: "Résumer automatiquement les publications Reddit lors du chargement de la page.",
         close: "Fermer",
         pressEsc: "Appuyez sur ESC pour fermer"
     },
@@ -190,6 +195,7 @@ export const TRANSLATIONS = {
         modelHelp: "例: gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "Japanese",
         autoSummarize: "自動要約",
+        autoSummarizeHelp: "ページ読み込み時にRedditの投稿を自動的に要約します。",
         close: "閉じる",
         pressEsc: "ESCキーで閉じる"
     },
@@ -220,6 +226,7 @@ export const TRANSLATIONS = {
         modelHelp: "ex. gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "Portuguese",
         autoSummarize: "Resumo Automático",
+        autoSummarizeHelp: "Resumir automaticamente as postagens do Reddit ao carregar a página.",
         close: "Fechar",
         pressEsc: "Pressione ESC para fechar"
     },
@@ -250,6 +257,7 @@ export const TRANSLATIONS = {
         modelHelp: "مثل gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "Arabic",
         autoSummarize: "تلخيص تلقائي",
+        autoSummarizeHelp: "تلخيص منشورات Reddit تلقائيًا عند تحميل الصفحة.",
         close: "إغلاق",
         pressEsc: "اضغط ESC للإغلاق"
     },
@@ -280,6 +288,7 @@ export const TRANSLATIONS = {
         modelHelp: "напр. gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "Russian",
         autoSummarize: "Авто-саммери",
+        autoSummarizeHelp: "Автоматически саммеризировать посты Reddit при загрузке страницы.",
         close: "Закрыть",
         pressEsc: "Нажмите ESC для закрытия"
     },
@@ -310,6 +319,7 @@ export const TRANSLATIONS = {
         modelHelp: "जैसे gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "Hindi",
         autoSummarize: "स्वतः सारांश",
+        autoSummarizeHelp: "पृष्ठ लोड होने पर Reddit पोस्ट को स्वचालित रूप से सारांशित करें।",
         close: "बंद करें",
         pressEsc: "बंद करने के लिए ESC दबाएं"
     },
@@ -340,6 +350,7 @@ export const TRANSLATIONS = {
         modelHelp: "예: gpt-4o, deepseek-chat, gemini-1.5-flash",
         promptLanguage: "Korean",
         autoSummarize: "자동 요약",
+        autoSummarizeHelp: "페이지 로드 시 Reddit 게시물을 자동으로 요약합니다.",
         close: "닫기",
         pressEsc: "ESC를 눌러 닫기"
     }
