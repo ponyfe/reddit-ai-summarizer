@@ -89,3 +89,45 @@ export async function generateSummary(redditData, settings, language = 'en', onC
         }
     }
 }
+
+export async function testConnection(settings) {
+    if (!settings.apiKey) {
+        throw new Error("API Key is missing.");
+    }
+
+    let url = settings.baseUrl || 'https://api.openai.com/v1';
+    if (url.endsWith('/')) url = url.slice(0, -1);
+
+    let endpoint = `${url}/chat/completions`;
+
+    if (url.includes('deepseek')) {
+        endpoint = `${url}/chat/completions`;
+    }
+
+    const model = settings.modelName || settings.model || 'gpt-3.5-turbo';
+
+    const payload = {
+        model: model,
+        messages: [
+            { role: "user", content: "Hi" } // Minimal test message
+        ],
+        max_tokens: 5,
+        stream: false
+    };
+
+    const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${settings.apiKey}`
+        },
+        body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+        const err = await response.text();
+        throw new Error(`API Error: ${response.status} - ${err}`);
+    }
+
+    return true;
+}

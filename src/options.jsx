@@ -1,8 +1,9 @@
 import { StrictMode, useState, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Coffee } from 'lucide-react'
+import { Coffee, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 import './index.css' // Reuse main css for tailwind
 import { LANGUAGES, TRANSLATIONS, getTranslation, detectLanguage } from './i18n'
+import { testConnection } from './llmClient'
 
 const MODELS = [
     { id: 'openai', name: 'OpenAI (GPT-4o/3.5)' },
@@ -73,6 +74,8 @@ function OptionsApp() {
     const [language, setLanguage] = useState(detectLanguage());
     const [autoSummarize, setAutoSummarize] = useState(true);
     const [status, setStatus] = useState('');
+    const [isTesting, setIsTesting] = useState(false);
+    const [testResult, setTestResult] = useState(null); // { success: boolean, msg: string }
 
     useEffect(() => {
         // Load settings
@@ -122,6 +125,24 @@ function OptionsApp() {
             setStatus(getTranslation(language, 'saved'));
             setTimeout(() => setStatus(''), 2000);
         });
+    };
+
+    const handleTestConnection = async () => {
+        setIsTesting(true);
+        setTestResult(null);
+        try {
+            await testConnection({
+                apiKey,
+                baseUrl,
+                modelName
+            });
+            setTestResult({ success: true, msg: t('testSuccess') });
+        } catch (error) {
+            console.error(error);
+            setTestResult({ success: false, msg: `${t('testFailed')}: ${error.message}` });
+        } finally {
+            setIsTesting(false);
+        }
     };
 
     const t = (key) => getTranslation(language, key);
@@ -263,6 +284,33 @@ function OptionsApp() {
                         >
                             {t('save')}
                         </button>
+
+                        <div className="pt-2">
+                            <button
+                                onClick={handleTestConnection}
+                                disabled={isTesting || !apiKey}
+                                className={`w-full py-2.5 rounded-lg font-medium transition-colors shadow-sm text-sm border flex items-center justify-center gap-2
+                                    ${isTesting || !apiKey
+                                        ? 'bg-gray-100 dark:bg-gray-800 text-gray-400 border-gray-200 dark:border-gray-700 cursor-not-allowed'
+                                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
+                                    }`}
+                            >
+                                {isTesting ? (
+                                    <>
+                                        <Loader2 size={16} className="animate-spin" />
+                                        {t('testing')}
+                                    </>
+                                ) : (
+                                    t('testConnection')
+                                )}
+                            </button>
+                            {testResult && (
+                                <div className={`mt-2 p-2 rounded text-xs flex items-center gap-2 ${testResult.success ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300'}`}>
+                                    {testResult.success ? <CheckCircle size={14} /> : <AlertCircle size={14} />}
+                                    <span className="truncate">{testResult.msg}</span>
+                                </div>
+                            )}
+                        </div>
 
                         <a
                             href="https://ko-fi.com/pony2026"

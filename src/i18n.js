@@ -45,9 +45,12 @@ export const TRANSLATIONS = {
         promptSummary: "Summary",
         promptKeyPoints: "Key Points",
         promptSentiment: "Sentiment",
-        modelUsed: "Model",
         getApiKey: "Get API Key",
-        supportMe: "Support Me"
+        supportMe: "Support Me",
+        testConnection: "Test Connection",
+        testing: "Testing...",
+        testSuccess: "Connection Successful!",
+        testFailed: "Connection Failed"
     },
     zh: {
         settingsTitle: "设置",
@@ -85,7 +88,11 @@ export const TRANSLATIONS = {
         promptSentiment: "情感倾向",
         modelUsed: "模型",
         getApiKey: "获取 API 密钥",
-        supportMe: "赞赏支持"
+        supportMe: "赞赏支持",
+        testConnection: "测试连接",
+        testing: "测试中...",
+        testSuccess: "连接成功！",
+        testFailed: "连接失败"
     },
     es: {
         settingsTitle: "Configuración",
@@ -123,7 +130,11 @@ export const TRANSLATIONS = {
         promptSentiment: "Sentimiento",
         modelUsed: "Modelo",
         getApiKey: "Obtener Clave API",
-        supportMe: "Apóyame"
+        supportMe: "Apóyame",
+        testConnection: "Probar Conexión",
+        testing: "Probando...",
+        testSuccess: "¡Conexión Exitosa!",
+        testFailed: "Conexión Fallida"
     },
     de: {
         settingsTitle: "Einstellungen",
@@ -161,7 +172,11 @@ export const TRANSLATIONS = {
         promptSentiment: "Stimmung",
         modelUsed: "Modell",
         getApiKey: "API-Schlüssel abrufen",
-        supportMe: "Unterstütze mich"
+        supportMe: "Unterstütze mich",
+        testConnection: "Verbindung Testen",
+        testing: "Testen...",
+        testSuccess: "Verbindung Erfolgreich!",
+        testFailed: "Verbindung Fehlgeschlagen"
     },
     fr: {
         settingsTitle: "Paramètres",
@@ -199,7 +214,11 @@ export const TRANSLATIONS = {
         promptSentiment: "Sentiment",
         modelUsed: "Modèle",
         getApiKey: "Obtenir la clé API",
-        supportMe: "Soutenez-moi"
+        supportMe: "Soutenez-moi",
+        testConnection: "Tester la connexion",
+        testing: "Test...",
+        testSuccess: "Connexion Réussie !",
+        testFailed: "Échec de la connexion"
     },
     ja: {
         settingsTitle: "設定",
@@ -237,7 +256,11 @@ export const TRANSLATIONS = {
         promptSentiment: "感情分析",
         modelUsed: "モデル",
         getApiKey: "APIキーを取得",
-        supportMe: "サポートする"
+        supportMe: "サポートする",
+        testConnection: "接続テスト",
+        testing: "テスト中...",
+        testSuccess: "接続成功！",
+        testFailed: "接続失敗"
     },
     pt: {
         settingsTitle: "Configurações",
@@ -275,7 +298,11 @@ export const TRANSLATIONS = {
         promptSentiment: "Sentimento",
         modelUsed: "Modelo",
         getApiKey: "Obter Chave API",
-        supportMe: "Apoie-me"
+        supportMe: "Apoie-me",
+        testConnection: "Testar Conexão",
+        testing: "Testando...",
+        testSuccess: "Conexão Bem-sucedida!",
+        testFailed: "Falha na Conexão"
     },
     ar: {
         settingsTitle: "الإعدادات",
@@ -313,7 +340,11 @@ export const TRANSLATIONS = {
         promptSentiment: "المشاعر",
         modelUsed: "النموذج",
         getApiKey: "الحصول على مفتاح API",
-        supportMe: "ادعمني"
+        supportMe: "ادعمني",
+        testConnection: "محاولة الاتصال",
+        testing: "جار الاختبار...",
+        testSuccess: "تم الاتصال بنجاح!",
+        testFailed: "فشل الاتصال"
     },
     ru: {
         settingsTitle: "Настройки",
@@ -351,7 +382,11 @@ export const TRANSLATIONS = {
         promptSentiment: "Настроение",
         modelUsed: "Модель",
         getApiKey: "Получить API Ключ",
-        supportMe: "Поддержать меня"
+        supportMe: "Поддержать меня",
+        testConnection: "Проверить соединение",
+        testing: "Проверка...",
+        testSuccess: "Соединение установлено!",
+        testFailed: "Ошибка соединения"
     },
     hi: {
         settingsTitle: "सेटिंग्स",
@@ -389,7 +424,11 @@ export const TRANSLATIONS = {
         promptSentiment: "भावना",
         modelUsed: "मॉडल",
         getApiKey: "API कुंजी प्राप्त करें",
-        supportMe: "मेरा समर्थन करें"
+        supportMe: "मेरा समर्थन करें",
+        testConnection: "कनेक्शन का परीक्षण करें",
+        testing: "परीक्षण जारी है...",
+        testSuccess: "कनेक्शन सफल!",
+        testFailed: "कनेक्शन विफल"
     },
     ko: {
         settingsTitle: "설정",
@@ -427,7 +466,11 @@ export const TRANSLATIONS = {
         promptSentiment: "감정",
         modelUsed: "모델",
         getApiKey: "API 키 발급",
-        supportMe: "후원하기"
+        supportMe: "후원하기",
+        testConnection: "연결 테스트",
+        testing: "테스트 중...",
+        testSuccess: "연결 성공!",
+        testFailed: "연결 실패"
     }
 };
 
