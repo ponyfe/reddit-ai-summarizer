@@ -47,10 +47,11 @@ export const TRANSLATIONS = {
         promptSentiment: "Sentiment",
         getApiKey: "Get API Key",
         supportMe: "Support Me",
-        testConnection: "Test Connection",
-        testing: "Testing...",
         testSuccess: "Connection Successful!",
-        testFailed: "Connection Failed"
+        testFailed: "Connection Failed",
+        fetchModels: "Fetch Models",
+        fetchingModels: "Fetching Models...",
+        modelsFetched: "Models Fetched!"
     },
     zh: {
         settingsTitle: "设置",
@@ -92,7 +93,10 @@ export const TRANSLATIONS = {
         testConnection: "测试连接",
         testing: "测试中...",
         testSuccess: "连接成功！",
-        testFailed: "连接失败"
+        testFailed: "连接失败",
+        fetchModels: "获取模型列表",
+        fetchingModels: "获取模型中...",
+        modelsFetched: "模型列表已更新！"
     },
     es: {
         settingsTitle: "Configuración",
@@ -134,7 +138,10 @@ export const TRANSLATIONS = {
         testConnection: "Probar Conexión",
         testing: "Probando...",
         testSuccess: "¡Conexión Exitosa!",
-        testFailed: "Conexión Fallida"
+        testFailed: "Conexión Fallida",
+        fetchModels: "Obtener Modelos",
+        fetchingModels: "Obteniendo...",
+        modelsFetched: "¡Modelos Actualizados!"
     },
     de: {
         settingsTitle: "Einstellungen",
@@ -176,7 +183,10 @@ export const TRANSLATIONS = {
         testConnection: "Verbindung Testen",
         testing: "Testen...",
         testSuccess: "Verbindung Erfolgreich!",
-        testFailed: "Verbindung Fehlgeschlagen"
+        testFailed: "Verbindung Fehlgeschlagen",
+        fetchModels: "Modelle Abrufen",
+        fetchingModels: "Abrufen...",
+        modelsFetched: "Modelle Aktualisiert!"
     },
     fr: {
         settingsTitle: "Paramètres",
@@ -218,7 +228,10 @@ export const TRANSLATIONS = {
         testConnection: "Tester la connexion",
         testing: "Test...",
         testSuccess: "Connexion Réussie !",
-        testFailed: "Échec de la connexion"
+        testFailed: "Échec de la connexion",
+        fetchModels: "Récupérer les modèles",
+        fetchingModels: "Récupération...",
+        modelsFetched: "Modèles mis à jour !"
     },
     ja: {
         settingsTitle: "設定",
@@ -260,7 +273,10 @@ export const TRANSLATIONS = {
         testConnection: "接続テスト",
         testing: "テスト中...",
         testSuccess: "接続成功！",
-        testFailed: "接続失敗"
+        testFailed: "接続失敗",
+        fetchModels: "モデルを取得",
+        fetchingModels: "取得中...",
+        modelsFetched: "モデルリスト更新完了！"
     },
     pt: {
         settingsTitle: "Configurações",
@@ -302,7 +318,10 @@ export const TRANSLATIONS = {
         testConnection: "Testar Conexão",
         testing: "Testando...",
         testSuccess: "Conexão Bem-sucedida!",
-        testFailed: "Falha na Conexão"
+        testFailed: "Falha na Conexão",
+        fetchModels: "Buscar Modelos",
+        fetchingModels: "Buscando...",
+        modelsFetched: "Modelos Atualizados!"
     },
     ar: {
         settingsTitle: "الإعدادات",
@@ -344,7 +363,10 @@ export const TRANSLATIONS = {
         testConnection: "محاولة الاتصال",
         testing: "جار الاختبار...",
         testSuccess: "تم الاتصال بنجاح!",
-        testFailed: "فشل الاتصال"
+        testFailed: "فشل الاتصال",
+        fetchModels: "جلب النماذج",
+        fetchingModels: "جار الجلب...",
+        modelsFetched: "تم تحديث النماذج!"
     },
     ru: {
         settingsTitle: "Настройки",
@@ -386,7 +408,10 @@ export const TRANSLATIONS = {
         testConnection: "Проверить соединение",
         testing: "Проверка...",
         testSuccess: "Соединение установлено!",
-        testFailed: "Ошибка соединения"
+        testFailed: "Ошибка соединения",
+        fetchModels: "Загрузить модели",
+        fetchingModels: "Загрузка...",
+        modelsFetched: "Модели обновлены!"
     },
     hi: {
         settingsTitle: "सेटिंग्स",
@@ -428,7 +453,10 @@ export const TRANSLATIONS = {
         testConnection: "कनेक्शन का परीक्षण करें",
         testing: "परीक्षण जारी है...",
         testSuccess: "कनेक्शन सफल!",
-        testFailed: "कनेक्शन विफल"
+        testFailed: "कनेक्शन विफल",
+        fetchModels: "मॉडल प्राप्त करें",
+        fetchingModels: "मॉडल प्राप्त कर रहा है...",
+        modelsFetched: "मॉडल अपडेट किए गए!"
     },
     ko: {
         settingsTitle: "설정",
@@ -470,7 +498,10 @@ export const TRANSLATIONS = {
         testConnection: "연결 테스트",
         testing: "테스트 중...",
         testSuccess: "연결 성공!",
-        testFailed: "연결 실패"
+        testFailed: "연결 실패",
+        fetchModels: "모델 목록 가져오기",
+        fetchingModels: "가져오는 중...",
+        modelsFetched: "모델 목록 업데이트됨!"
     }
 };
 

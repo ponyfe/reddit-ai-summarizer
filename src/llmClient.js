@@ -131,3 +131,43 @@ export async function testConnection(settings) {
 
     return true;
 }
+
+export async function fetchModels(settings) {
+    if (!settings.apiKey) {
+        throw new Error("API Key is missing.");
+    }
+
+    let url = settings.baseUrl || 'https://api.openai.com/v1';
+    if (url.endsWith('/')) url = url.slice(0, -1);
+
+    // Standard OpenAI compatible models endpoint
+    let endpoint = `${url}/models`;
+
+    // Adjustments for specific providers if needed
+    if (url.includes('googleapis')) {
+        // Google Gemini usually requires specific path handling or different endpoint, 
+        // but often 'openai' compatible proxy is used. If raw gemini:
+        // endpoint = ...
+    }
+
+    const response = await fetch(endpoint, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${settings.apiKey}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch models: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // Expecting OpenAI format: { data: [ { id: "model-id", ... }, ... ] }
+    if (data && Array.isArray(data.data)) {
+        return data.data.map(m => m.id);
+    }
+
+    return [];
+}

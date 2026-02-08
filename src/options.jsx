@@ -1,9 +1,9 @@
 import { StrictMode, useState, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Coffee, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import { Coffee, CheckCircle, AlertCircle, Loader2, List, RefreshCw } from 'lucide-react'
 import './index.css' // Reuse main css for tailwind
 import { LANGUAGES, TRANSLATIONS, getTranslation, detectLanguage } from './i18n'
-import { testConnection } from './llmClient'
+import { testConnection, fetchModels } from './llmClient'
 
 const MODELS = [
     { id: 'openai', name: 'OpenAI (GPT-4o/3.5)' },
@@ -77,6 +77,10 @@ function OptionsApp() {
     const [isTesting, setIsTesting] = useState(false);
     const [testResult, setTestResult] = useState(null); // { success: boolean, msg: string }
 
+    const [availableModels, setAvailableModels] = useState([]);
+    const [isFetchingModels, setIsFetchingModels] = useState(false);
+    const [fetchModelMsg, setFetchModelMsg] = useState('');
+
     useEffect(() => {
         // Load settings
         chrome.storage.local.get(['llmSettings', 'theme', 'language', 'autoSummarize'], (result) => {
@@ -142,6 +146,22 @@ function OptionsApp() {
             setTestResult({ success: false, msg: `${t('testFailed')}: ${error.message}` });
         } finally {
             setIsTesting(false);
+        }
+    };
+
+    const handleFetchModels = async () => {
+        setIsFetchingModels(true);
+        setFetchModelMsg('');
+        try {
+            const models = await fetchModels({ apiKey, baseUrl });
+            setAvailableModels(models);
+            setFetchModelMsg(t('modelsFetched'));
+            setTimeout(() => setFetchModelMsg(''), 3000);
+        } catch (error) {
+            console.error(error);
+            setFetchModelMsg(t('error'));
+        } finally {
+            setIsFetchingModels(false);
         }
     };
 
@@ -264,16 +284,40 @@ function OptionsApp() {
 
                         <div>
                             <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">{t('modelName')}</label>
-                            <input
-                                type="text"
-                                value={modelName}
-                                onChange={(e) => setModelName(e.target.value)}
-                                className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none font-mono"
-                                placeholder="e.g. gpt-4o"
-                            />
-                            <p className="text-xs text-gray-500 mt-1">
-                                {t('modelHelp')}
-                            </p>
+                            <div className="flex gap-2">
+                                <div className="relative flex-1">
+                                    <input
+                                        type="text"
+                                        list="model-suggestions"
+                                        value={modelName}
+                                        onChange={(e) => setModelName(e.target.value)}
+                                        className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none font-mono"
+                                        placeholder="e.g. gpt-4o"
+                                        autoComplete="off"
+                                    />
+                                    <datalist id="model-suggestions">
+                                        {availableModels.map((model) => (
+                                            <option key={model} value={model} />
+                                        ))}
+                                    </datalist>
+                                </div>
+                                <button
+                                    onClick={handleFetchModels}
+                                    disabled={isFetchingModels || !apiKey}
+                                    className="px-3 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-gray-600 dark:text-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    title={t('fetchModels')}
+                                >
+                                    {isFetchingModels ? <Loader2 size={18} className="animate-spin" /> : <List size={18} />}
+                                </button>
+                            </div>
+                            <div className="flex justify-between items-start mt-1">
+                                <p className="text-xs text-gray-500">
+                                    {t('modelHelp')}
+                                </p>
+                                {fetchModelMsg && (
+                                    <span className="text-xs text-green-600 dark:text-green-400">{fetchModelMsg}</span>
+                                )}
+                            </div>
                         </div>
 
                         <div className="pt-1 flex items-center justify-between">
