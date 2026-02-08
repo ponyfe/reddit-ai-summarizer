@@ -37,12 +37,14 @@ export const TRANSLATIONS = {
         },
         baseUrlHelp: "Endpoint address (OpenAI compatible).",
         googleHelp: "For Google, requires 'generativelanguage.googleapis.com'.",
-        modelHelp: "e.g. gpt-4o, deepseek-chat, gemini-1.5-flash",
-        promptLanguage: "English",
         autoSummarize: "Auto-Summarize",
         autoSummarizeHelp: "Automatically summarize Reddit posts when page loads.",
         close: "Close",
-        pressEsc: "Press ESC to close"
+        pressEsc: "Press ESC to close",
+        promptTitle: "Title",
+        promptSummary: "Summary",
+        promptKeyPoints: "Key Points",
+        promptSentiment: "Sentiment"
     },
     zh: {
         settingsTitle: "设置",
@@ -73,7 +75,11 @@ export const TRANSLATIONS = {
         autoSummarize: "自动总结",
         autoSummarizeHelp: "加载 Reddit 帖子页面时自动开始总结。",
         close: "关闭",
-        pressEsc: "按 ESC 关闭"
+        pressEsc: "按 ESC 关闭",
+        promptTitle: "标题",
+        promptSummary: "摘要",
+        promptKeyPoints: "关键点",
+        promptSentiment: "情感倾向"
     },
     es: {
         settingsTitle: "Configuración",
@@ -104,7 +110,11 @@ export const TRANSLATIONS = {
         autoSummarize: "Resumen Automático",
         autoSummarizeHelp: "Resumir automáticamente las publicaciones de Reddit al cargar la página.",
         close: "Cerrar",
-        pressEsc: "Presiona ESC para cerrar"
+        pressEsc: "Presiona ESC para cerrar",
+        promptTitle: "Título",
+        promptSummary: "Resumen",
+        promptKeyPoints: "Puntos Clave",
+        promptSentiment: "Sentimiento"
     },
     de: {
         settingsTitle: "Einstellungen",
@@ -135,7 +145,11 @@ export const TRANSLATIONS = {
         autoSummarize: "Automatische Zusammenfassung",
         autoSummarizeHelp: "Reddit-Posts beim Laden der Seite automatisch zusammenfassen.",
         close: "Schließen",
-        pressEsc: "Drücken Sie ESC zum Schließen"
+        pressEsc: "Drücken Sie ESC zum Schließen",
+        promptTitle: "Titel",
+        promptSummary: "Zusammenfassung",
+        promptKeyPoints: "Wichtige Punkte",
+        promptSentiment: "Stimmung"
     },
     fr: {
         settingsTitle: "Paramètres",
@@ -166,7 +180,11 @@ export const TRANSLATIONS = {
         autoSummarize: "Résumé Automatique",
         autoSummarizeHelp: "Résumer automatiquement les publications Reddit lors du chargement de la page.",
         close: "Fermer",
-        pressEsc: "Appuyez sur ESC pour fermer"
+        pressEsc: "Appuyez sur ESC pour fermer",
+        promptTitle: "Titre",
+        promptSummary: "Résumé",
+        promptKeyPoints: "Points Clés",
+        promptSentiment: "Sentiment"
     },
     ja: {
         settingsTitle: "設定",
@@ -197,7 +215,11 @@ export const TRANSLATIONS = {
         autoSummarize: "自動要約",
         autoSummarizeHelp: "ページ読み込み時にRedditの投稿を自動的に要約します。",
         close: "閉じる",
-        pressEsc: "ESCキーで閉じる"
+        pressEsc: "ESCキーで閉じる",
+        promptTitle: "タイトル",
+        promptSummary: "要約",
+        promptKeyPoints: "重要ポイント",
+        promptSentiment: "感情分析"
     },
     pt: {
         settingsTitle: "Configurações",
@@ -228,7 +250,11 @@ export const TRANSLATIONS = {
         autoSummarize: "Resumo Automático",
         autoSummarizeHelp: "Resumir automaticamente as postagens do Reddit ao carregar a página.",
         close: "Fechar",
-        pressEsc: "Pressione ESC para fechar"
+        pressEsc: "Pressione ESC para fechar",
+        promptTitle: "Título",
+        promptSummary: "Resumo",
+        promptKeyPoints: "Pontos Principais",
+        promptSentiment: "Sentimento"
     },
     ar: {
         settingsTitle: "الإعدادات",
@@ -259,7 +285,11 @@ export const TRANSLATIONS = {
         autoSummarize: "تلخيص تلقائي",
         autoSummarizeHelp: "تلخيص منشورات Reddit تلقائيًا عند تحميل الصفحة.",
         close: "إغلاق",
-        pressEsc: "اضغط ESC للإغلاق"
+        pressEsc: "اضغط ESC للإغلاق",
+        promptTitle: "العنوان",
+        promptSummary: "الملخص",
+        promptKeyPoints: "النقاط الرئيسية",
+        promptSentiment: "المشاعر"
     },
     ru: {
         settingsTitle: "Настройки",
@@ -290,7 +320,11 @@ export const TRANSLATIONS = {
         autoSummarize: "Авто-саммери",
         autoSummarizeHelp: "Автоматически саммеризировать посты Reddit при загрузке страницы.",
         close: "Закрыть",
-        pressEsc: "Нажмите ESC для закрытия"
+        pressEsc: "Нажмите ESC для закрытия",
+        promptTitle: "Заголовок",
+        promptSummary: "Кратко",
+        promptKeyPoints: "Ключевые моменты",
+        promptSentiment: "Настроение"
     },
     hi: {
         settingsTitle: "सेटिंग्स",
@@ -321,7 +355,11 @@ export const TRANSLATIONS = {
         autoSummarize: "स्वतः सारांश",
         autoSummarizeHelp: "पृष्ठ लोड होने पर Reddit पोस्ट को स्वचालित रूप से सारांशित करें।",
         close: "बंद करें",
-        pressEsc: "बंद करने के लिए ESC दबाएं"
+        pressEsc: "बंद करने के लिए ESC दबाएं",
+        promptTitle: "शीर्षक",
+        promptSummary: "सारांश",
+        promptKeyPoints: "मुख्य बिंदु",
+        promptSentiment: "भावना"
     },
     ko: {
         settingsTitle: "설정",
@@ -352,7 +390,11 @@ export const TRANSLATIONS = {
         autoSummarize: "자동 요약",
         autoSummarizeHelp: "페이지 로드 시 Reddit 게시물을 자동으로 요약합니다.",
         close: "닫기",
-        pressEsc: "ESC를 눌러 닫기"
+        pressEsc: "ESC를 눌러 닫기",
+        promptTitle: "제목",
+        promptSummary: "요약",
+        promptKeyPoints: "핵심 포인트",
+        promptSentiment: "감정"
     }
 };
 

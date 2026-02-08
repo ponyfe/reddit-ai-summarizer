@@ -7,15 +7,19 @@ export async function generateSummary(redditData, settings, language = 'en', onC
 
     // Prepare System Prompt
     const targetLanguageName = getTranslation(language, 'promptLanguage');
+    const tTitle = getTranslation(language, 'promptTitle');
+    const tSummary = getTranslation(language, 'promptSummary');
+    const tKeyPoints = getTranslation(language, 'promptKeyPoints');
+    const tSentiment = getTranslation(language, 'promptSentiment');
 
     const systemPrompt = `You are a Reddit Thread Summarizer. 
     Your task is to summarize the following Reddit thread in ${targetLanguageName}.
     
     Structure the summary as follows:
-    1. **Title**: The title of the post.
-    2. **TL;DR**: A concise summary of the main point.
-    3. **Key Points**: A bulleted list of 3-5 distinct, key arguments or discussions found in the comments.
-    4. **Sentiment**: Briefly describe the overall sentiment (Positive, Negative, Mixed, Neutral).
+    1. **${tTitle}**: The title of the post.
+    2. **${tSummary}**: A concise summary of the main point.
+    3. **${tKeyPoints}**: A bulleted list of 3-5 distinct, key arguments or discussions found in the comments.
+    4. **${tSentiment}**: Briefly describe the overall sentiment (Positive, Negative, Mixed, Neutral).
     
     Stay objective. Do not hallucinate infomation. Use Markdown formatting.
     Output ONLY the summary in ${targetLanguageName}.`;
