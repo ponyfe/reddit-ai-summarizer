@@ -202,22 +202,70 @@ export function Overlay() {
         }
     };
 
-    const FloatingBubble = () => (
-        <button
-            onClick={toggleExpand}
-            className={`fixed bottom-8 right-8 z-[10000] p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center pointer-events-auto
-                ${status === 'error' ? 'bg-red-600 text-white' :
-                    status === 'success' ? 'bg-green-600 text-white' :
-                        'bg-orange-500 text-white'}
-            `}
-            title={status === 'loading' ? t('reading') : t('bubbleTooltip')}
-        >
-            {status === 'loading' && <Loader2 className="animate-spin" size={24} />}
-            {status === 'success' && <CheckCircle2 size={24} />}
-            {status === 'error' && <AlertCircle size={24} />}
-            {status === 'idle' && <MessageSquareText size={24} />}
-        </button>
-    );
+    const FloatingBubble = () => {
+        const isActive = status === 'loading';
+        const isSuccess = status === 'success';
+        const isError = status === 'error';
+
+        return (
+            <div className="fixed bottom-8 right-8 z-[10000] pointer-events-auto">
+                {/* Outer glow ring - pulses when loading */}
+                <div className={`absolute inset-0 rounded-full transition-all duration-500 ${isActive ? 'animate-ping bg-orange-400/30 scale-150' :
+                        isSuccess ? 'bg-green-400/20 scale-110' :
+                            isError ? 'bg-red-400/20 scale-110' :
+                                'bg-orange-400/10 scale-100'
+                    }`} />
+
+                {/* Rotating gradient border for loading state */}
+                {isActive && (
+                    <div className="absolute inset-[-3px] rounded-full bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 animate-spin"
+                        style={{ animationDuration: '2s' }} />
+                )}
+
+                {/* Main button */}
+                <button
+                    onClick={toggleExpand}
+                    className={`relative flex items-center gap-2 shadow-2xl transition-all duration-500 ease-out hover:scale-110 active:scale-95 overflow-hidden
+                        ${isActive
+                            ? 'w-14 h-14 rounded-full p-0 justify-center'
+                            : 'px-4 py-3 rounded-2xl'
+                        }
+                        ${isError
+                            ? 'bg-gradient-to-br from-red-500 to-red-700 text-white shadow-red-500/40'
+                            : isSuccess
+                                ? 'bg-gradient-to-br from-green-500 to-emerald-600 text-white shadow-green-500/40'
+                                : 'bg-gradient-to-br from-orange-500 via-orange-600 to-amber-600 text-white shadow-orange-500/50'
+                        }
+                        hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]
+                    `}
+                    title={isActive ? t('reading') : t('bubbleTooltip')}
+                    style={{
+                        boxShadow: isActive
+                            ? '0 0 40px rgba(249, 115, 22, 0.5), inset 0 0 20px rgba(255,255,255,0.1)'
+                            : undefined
+                    }}
+                >
+                    {/* Inner shimmer effect */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent opacity-60" />
+
+                    {/* Icon */}
+                    <span className="relative z-10">
+                        {isActive && <Loader2 className="animate-spin" size={24} />}
+                        {isSuccess && <CheckCircle2 size={22} />}
+                        {isError && <AlertCircle size={22} />}
+                        {status === 'idle' && <MessageSquareText size={20} />}
+                    </span>
+
+                    {/* Label text - hidden when loading */}
+                    {!isActive && (
+                        <span className="relative z-10 font-semibold text-sm whitespace-nowrap">
+                            AI Summary
+                        </span>
+                    )}
+                </button>
+            </div>
+        );
+    };
 
     return (
         <div className={isDark ? 'dark' : ''}>
