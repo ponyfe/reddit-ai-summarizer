@@ -16,6 +16,14 @@
   <a href="#contributing">Contributing</a>
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Built%20with-Vibe%20Coding-blueviolet?style=for-the-badge" alt="Built with Vibe Coding">
+  <img src="https://img.shields.io/badge/Powered%20by-Antigravity-orange?style=for-the-badge" alt="Powered by Antigravity">
+</p>
+
+> **🎵 Vibe Coding Project**  
+> This entire project was built using **vibe coding** with [Antigravity](https://deepmind.google/) — **zero lines of code were written manually**. Every file, feature, and fix was generated through natural language conversations with AI.
+
 ---
 
 ## ✨ Features
