@@ -265,7 +265,7 @@ function OptionsApp() {
                         </button>
 
                         <a
-                            href="https://ko-fi.com/YOUR_USERNAME_HERE"
+                            href="https://ko-fi.com/pony2026"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-2 w-full bg-[#FF5E5B] hover:bg-[#FF413E] text-white py-2.5 rounded-lg font-medium transition-colors shadow-sm text-sm"
@@ -273,9 +273,7 @@ function OptionsApp() {
                             <Coffee size={16} fill="currentColor" />
                             {t('supportMe')}
                         </a>
-                        <p className="text-center text-xs text-gray-400 dark:text-gray-500">
-                            Update the Ko-fi URL in options.jsx
-                        </p>
+
                     </div>
 
                 </div>

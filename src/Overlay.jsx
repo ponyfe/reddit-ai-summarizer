@@ -279,7 +279,7 @@ export function Overlay() {
                                                     <div className="relative pb-4">
                                                         <Markdown>{summary}</Markdown>
                                                         {analyzing && (
-                                                            <span className="inline-block w-2 h-5 ml-1 bg-orange-500 animate-pulse align-middle" style={{ marginTop: '-2px' }}></span>
+                                                            <span className="inline-block w-1.5 h-4 ml-0.5 bg-orange-500 animate-cursor-blink align-text-bottom mb-0.5"></span>
                                                         )}
                                                     </div>
                                                 )}
