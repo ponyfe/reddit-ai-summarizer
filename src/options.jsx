@@ -113,6 +113,11 @@ function OptionsApp() {
 
     const handleProviderChange = (newProvider) => {
         setProvider(newProvider);
+        // Security: Clear API key when switching providers to prevent accidental leakage
+        setApiKey('');
+        // Clear fetched models from previous provider
+        setAvailableModels([]);
+        setTestResult(null);
         if (DEFAULTS[newProvider]) {
             setBaseUrl(DEFAULTS[newProvider].baseUrl);
             setModelName(DEFAULTS[newProvider].model);
