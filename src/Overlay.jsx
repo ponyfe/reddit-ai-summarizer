@@ -4,7 +4,7 @@ import { generateSummary } from './llmClient'
 import {
     Minimize2, Settings as SettingsIcon, RefreshCw,
     MessageSquareText, CheckCircle2, AlertCircle, Loader2,
-    Sun, Moon, Monitor
+    Sun, Moon, Monitor, User
 } from 'lucide-react'
 import { getTranslation, detectLanguage } from './i18n'
 
@@ -293,12 +293,16 @@ export function Overlay() {
                             {!loading && !error && data && (
                                 <div className="p-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50/95 dark:bg-gray-900/95 shrink-0 flex items-center justify-between text-xs text-gray-500 border-gray-200 dark:border-gray-700 transition-colors duration-200 z-10">
                                     <div className="flex items-center gap-2 flex-1 mr-4 overflow-hidden">
-                                        {data.authorAvatar && (
+                                        {data.authorAvatar ? (
                                             <img
                                                 src={data.authorAvatar}
                                                 alt={data.author}
                                                 className="w-6 h-6 rounded-full object-cover border border-gray-200 dark:border-gray-700"
                                             />
+                                        ) : (
+                                            <div className="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center border border-gray-300 dark:border-gray-600 shrink-0">
+                                                <User size={14} className="text-gray-500 dark:text-gray-400" />
+                                            </div>
                                         )}
                                         <div className="flex flex-col min-w-0">
                                             {data.author && <span className="font-semibold text-gray-700 dark:text-gray-300 truncate">u/{data.author}</span>}
