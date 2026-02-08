@@ -292,7 +292,20 @@ export function Overlay() {
                             {/* Footer */}
                             {!loading && !error && data && (
                                 <div className="p-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50/95 dark:bg-gray-900/95 shrink-0 flex items-center justify-between text-xs text-gray-500 border-gray-200 dark:border-gray-700 transition-colors duration-200 z-10">
-                                    <p className="line-clamp-1 flex-1 mr-4">{t('source')}: {data.title}</p>
+                                    <div className="flex items-center gap-2 flex-1 mr-4 overflow-hidden">
+                                        {data.authorAvatar && (
+                                            <img
+                                                src={data.authorAvatar}
+                                                alt={data.author}
+                                                className="w-6 h-6 rounded-full object-cover border border-gray-200 dark:border-gray-700"
+                                            />
+                                        )}
+                                        <div className="flex flex-col min-w-0">
+                                            {data.author && <span className="font-semibold text-gray-700 dark:text-gray-300 truncate">u/{data.author}</span>}
+                                            <span className="truncate opacity-75">{data.title}</span>
+                                        </div>
+                                    </div>
+
                                     <button
                                         onClick={fetchRedditData}
                                         disabled={loading || analyzing}

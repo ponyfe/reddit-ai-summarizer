@@ -21,6 +21,19 @@ export function getRedditDataGlobal() {
         if (userText) body = userText.innerText.trim();
     }
 
+    // 3. Author Info
+    let author = '';
+    let authorAvatar = '';
+    const shredditPost = document.querySelector('shreddit-post');
+    if (shredditPost) {
+        author = shredditPost.getAttribute('author') || '';
+        authorAvatar = shredditPost.getAttribute('author-icon-img') || '';
+    } else {
+        // Fallback for old reddit or other layouts
+        const authorLink = document.querySelector('.author');
+        if (authorLink) author = authorLink.innerText.trim();
+    }
+
     // 3. Comments
     const comments = [];
     const shredditComments = document.querySelectorAll('shreddit-comment');
@@ -53,6 +66,8 @@ export function getRedditDataGlobal() {
         title,
         body,
         comments,
+        author,
+        authorAvatar,
         url: window.location.href,
         extractedAt: new Date().toISOString()
     };
