@@ -5,9 +5,14 @@ import { LANGUAGES, TRANSLATIONS, getTranslation, detectLanguage } from './i18n'
 
 const MODELS = [
     { id: 'openai', name: 'OpenAI (GPT-4o/3.5)' },
-    { id: 'deepseek', name: 'DeepSeek (via API)' },
-    { id: 'google', name: 'Google Gemini (OpenAI Compatible)' },
-    { id: 'custom', name: 'Custom / Other (OpenAI Compatible)' }
+    { id: 'deepseek', name: 'DeepSeek' },
+    { id: 'google', name: 'Google Gemini' },
+    { id: 'minimax', name: 'Minimax' },
+    { id: 'kimi', name: 'Kimi (Moonshot)' },
+    { id: 'zhipu', name: 'Zhipu AI (GLM)' },
+    { id: 'tongyi', name: 'Tongyi Qianwen (Qwen)' },
+    { id: 'openrouter', name: 'OpenRouter' },
+    { id: 'custom', name: 'Custom / Other' }
 ];
 
 const DEFAULTS = {
@@ -22,6 +27,26 @@ const DEFAULTS = {
     google: {
         baseUrl: 'https://generativelanguage.googleapis.com/v1beta/openai',
         model: 'gemini-1.5-flash'
+    },
+    minimax: {
+        baseUrl: 'https://api.minimax.chat/v1',
+        model: 'abab5.5-chat'
+    },
+    kimi: {
+        baseUrl: 'https://api.moonshot.cn/v1',
+        model: 'moonshot-v1-8k'
+    },
+    zhipu: {
+        baseUrl: 'https://open.bigmodel.cn/api/paas/v4',
+        model: 'glm-4'
+    },
+    tongyi: {
+        baseUrl: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
+        model: 'qwen-turbo'
+    },
+    openrouter: {
+        baseUrl: 'https://openrouter.ai/api/v1',
+        model: 'openai/gpt-3.5-turbo'
     },
     custom: {
         baseUrl: '',
